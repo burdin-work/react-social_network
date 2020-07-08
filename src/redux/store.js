@@ -33,7 +33,7 @@ let store = {
         sidebar: {}
     },
     _callSubscriber() {
-        console.log("The state was changed...")
+        console.log("The redux was changed...")
     },
 
     getState() {
