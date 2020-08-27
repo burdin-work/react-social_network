@@ -1,7 +1,7 @@
 import preloader from "../../../assets/images/preloader.svg";
 import React from "react";
 
-let Preloader = (props) => {
+let Preloader = () => {
     return <img src={preloader}/>
 }
 

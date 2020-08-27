@@ -1,41 +1,51 @@
 import React from 'react';
 import styles from './MyPosts.module.css';
 import Post from "./Post/Post";
-import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../redux/profile-reducer";
+import {Field, reduxForm} from "redux-form";
+import {maxLength10, required} from "../../../utils/validators/validators";
+import {Textarea} from "../../common/FormsControls/FormsControls";
 
-const MyPosts = (props) => {
+
+
+const NewPostForm = (props) => {
+    return (
+        <form onSubmit={props.handleSubmit}>
+            <Field name="newPostBody"
+                   component={Textarea}
+                   placeholder="enter your post"
+                   validate={[required, maxLength10]}
+            />
+            <div>
+                <button>Add post</button>
+            </div>
+        </form>
+    )
+}
+
+const NewPostFormRedux = reduxForm({form: 'AddNewPostForm'})(NewPostForm)
+
+
+const MyPosts = React.memo(props => {
 
     let postsElements =
         props.posts.map(post => <Post message={post.message} likesCount={post.likesCount}/>);
 
-    let newPostElement = React.createRef();
 
-    let onAddPost = () => {
-        props.addPost();
+    let onAddNewPost = (values) => {
+        props.addPost(values.newPostBody);
     }
-
-    let onPostChange = () => {
-        let text = newPostElement.current.value;
-        props.updateNewPostText(text);
-    }
-
 
     return (
         <div className={styles.postsBlock}>
             <div>
                 <h3>My posts</h3>
-                <div>
-                    <textarea onChange={onPostChange} ref={newPostElement} value={props.newPostText} />
-                </div>
-                <div>
-                    <button onClick={onAddPost}>Add post</button>
-                </div>
+                <NewPostFormRedux onSubmit={onAddNewPost}/>
             </div>
             <div className={styles.posts}>
                 {postsElements}
             </div>
         </div>
     )
-};
+});
 
 export default MyPosts;
