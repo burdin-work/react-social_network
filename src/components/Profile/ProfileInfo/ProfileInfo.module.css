@@ -1,9 +1,17 @@
 .descriptionBlock {
     padding: 10px;
-    background-color: red;
+    background-color: cadetblue;
 }
 
 .statusDisplay {
     display: block;
     width: 500px;
+}
+
+.mainPhoto {
+    max-width: 200px;
+}
+
+.contact {
+    padding-left: 10px;
 }

@@ -9,13 +9,13 @@ const ProfileStatus = (props) => {
 
     useEffect(() => {
         setStatus(props.status);
-    },[props.status])
+    }, [props.status])
 
-    const activateEditMode = () =>  {
+    const activateEditMode = () => {
         setEditMode(true);
     }
 
-    const deactivateEditMode = () =>  {
+    const deactivateEditMode = () => {
         setEditMode(false);
         props.updateStatus(status);
     }
@@ -26,10 +26,10 @@ const ProfileStatus = (props) => {
 
     return (
         <div>
-            { !editMode &&
+            {!editMode &&
             <div>
-
-                    <span className={styles.statusDisplay} onClick={activateEditMode}>
+                <b>Status: </b>
+                <span className={styles.statusDisplay} onClick={activateEditMode}>
                         {props.status || "-----"}</span>
             </div>
             }

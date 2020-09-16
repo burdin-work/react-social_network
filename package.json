@@ -2,7 +2,7 @@
   "name": "social_network",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://burdin-work.github.io/social_network",
+  "homepage": "https://burdin-work.github.io/react-social_network/",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
