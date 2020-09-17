@@ -1,6 +1,5 @@
 .descriptionBlock {
-    padding: 10px;
-    background-color: cadetblue;
+    padding-left: 10px;
 }
 
 .statusDisplay {
@@ -9,7 +8,7 @@
 }
 
 .mainPhoto {
-    max-width: 200px;
+    max-width: 250px;
 }
 
 .contact {

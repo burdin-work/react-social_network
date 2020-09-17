@@ -1,10 +1,21 @@
-
 .header {
     grid-area: h;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    align-items: center;
+    padding: 1rem 1rem 1rem 1rem;
 }
-.header img {
-    width: 50px;
-    background-color: green;
+.logo {
+    width: 85px;
+}
+
+.HeaderPictureWrap {
+}
+
+.headerPicture {
+    width: 450px;
+    opacity: .85;
 }
 
 .loginBlock {
@@ -14,3 +25,41 @@
 .loginBlock a {
 
 }
+
+.headerLogin{
+    text-align: center;
+}
+
+.authButton {
+    position: relative;
+    color: #111;
+    font-weight: bold;
+    text-decoration: none;
+    text-shadow: -1px -1px #fff;
+    user-select: none;
+    padding: .3em .9em;
+    outline: none;
+    background-color: #fff;
+    border-radius: 8px;
+    background-image: linear-gradient(45deg, rgba(255,255,255,.0) 30%, rgba(114, 113, 113, 0.8), rgba(201, 78, 78, 0) 70%), radial-gradient(190% 100% at 50% 0%, rgba(9, 9, 9, 0.35) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(0,0,0,0) 50%);
+    background-repeat: no-repeat;
+    background-size: 200% 100%, auto;
+    background-position: 200% 0, 0 0;
+    box-shadow: rgba(0,0,0,.3) 0 2px 5px;
+
+
+}
+
+.authButton:hover {
+    background-color: #f5efef;
+    color: #111;
+    cursor: pointer;
+    text-decoration: none;
+    transition: .5s linear;
+    background-position: -200% 0, 0 0;
+}
+.authButton:active {
+    top: 1px;
+    box-shadow: none;
+}
+

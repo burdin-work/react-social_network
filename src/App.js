@@ -17,6 +17,7 @@ import {initializeApp} from "./redux/app-reducer";
 import Preloader from "./components/common/Preloader/Preloader";
 import store from "./redux/redux-store";
 import {withSuspense} from "./hoc/withSuspense";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 //import DialogsContainer from "./components/Dialogs/DialogsContainer";
 const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'));
@@ -33,6 +34,7 @@ class App extends Component {
 
         window.addEventListener("unhandledrejection", this.catchAllUnhandledErrors);
     }
+
     componentWillMount() {
         window.removeEventListener("unhandledrejection", this.catchAllUnhandledErrors);
     }
@@ -44,30 +46,36 @@ class App extends Component {
         }
 
         return (
-            <div className="app-wrapper">
-                <HeaderContainer/>
-                <Navbar/>
-                <div className="app-wrapper-content">
-                    <Switch>
-                        <Route exact path='/' render={() =>
-                            <Redirect to={"/profile"} /> } />
-
-                        <Route path='/settings' render={() => <Settings/>}/>
-                        <Route path='/music' render={() => <Music/>}/>
-                        <Route path='/news' render={() => <News/>}/>
-                        <Route path='/dialogs'
-                               render={withSuspense(DialogsContainer)}/>
-                        <Route path='/profile/:userId?' render={() =>
-                            <ProfileContainer/>}/>
-                        <Route path='/users' render={() =>
-                            < UsersContainer/>}/>
-                        <Route path='/login' render={() =>
-                            < Login/>}/>
-                        <Route path='*' render={() =>
-                            <div>404 NOT FOUND</div>} />
-                    </Switch>
+            <main>
+                <div className="header-wrap">
+                    <HeaderContainer/>
                 </div>
-            </div>
+                <div className="app-container">
+                    <div className="main">
+                        <Navbar/>
+                        <div className="content">
+
+                            <Switch>
+                                <Route exact path='/' render={() =>
+                                    <Redirect to={"/profile"}/>}/>
+                                <Route path='/settings' render={() => <Settings/>}/>
+                                <Route path='/music' render={() => <Music/>}/>
+                                <Route path='/news' render={() => <News/>}/>
+                                <Route path='/dialogs'
+                                       render={withSuspense(DialogsContainer)}/>
+                                <Route path='/profile/:userId?' render={() =>
+                                    <ProfileContainer/>}/>
+                                <Route path='/users' render={() =>
+                                    < UsersContainer/>}/>
+                                <Route path='/login' render={() =>
+                                    < Login/>}/>
+                                <Route path='*' render={() =>
+                                    <div>404 NOT FOUND</div>}/>
+                            </Switch>
+                        </div>
+                    </div>
+                </div>
+            </main>
         );
     }
 }
