@@ -12,3 +12,4 @@ const maxLength = (maxLength) => value => {
 }
 export const maxLength10 = maxLength(10);
 export const maxLength50 = maxLength(50);
+export const maxLength500 = maxLength(500);

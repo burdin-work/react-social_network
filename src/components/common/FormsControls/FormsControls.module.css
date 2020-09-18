@@ -12,3 +12,15 @@
     padding: 5px;
     color: red;
 }
+
+.textareaWrap{
+}
+
+.textarea {
+    border: 1px solid rgba(17, 17, 17, .25);
+    border-radius: 8px;
+    padding: 5px;
+    width: 100%;
+    resize: none;
+    margin: 0;
+}

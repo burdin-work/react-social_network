@@ -1,16 +1,101 @@
 .descriptionBlock {
-    padding-left: 10px;
+    display: flex;
+    justify-content: left;
+    flex-wrap: nowrap;
 }
 
-.statusDisplay {
-    display: block;
-    width: 500px;
+.descriptionLeft,
+.descriptionRight {
+    border-radius: 4px;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 1px 0 0 rgba(17, 17, 17, .15),0 0 0 1px rgba(17, 17, 17, .05);
+}
+
+.descriptionLeft {
+    margin-right: 15px;
+}
+.descriptionRight {
+    width: 100%;
+}
+
+
+
+.mainInfoEditLink,
+.contactsInfoEditLink{
+    display:none;
+    cursor: pointer;
+    color: inherit;
+    color: inherit;
+    background-color: #fff;
+    position: absolute;
+    top: -12px;
+    right: 0;
+    padding-left: 5px;
+}
+.mainInfoEditLink:hover,
+.contactsInfoEditLink:hover {
+    color: inherit;
+}
+
+.mainInfoWrap:hover .mainInfoEditLink{
+    display:block;
+}
+.contactsInfoWrap:hover .contactsInfoEditLink{
+    display:block;
+}
+
+.contactsInfoWrap,
+.mainInfoWrap {
+    position: relative;
+    border-top: 1px solid rgba(17, 17, 17, .15);
+    width: 100%;
+    padding: 20px 0 20px 5px;
+}
+
+.fullName {
+    font-size: 24px;
+}
+
+.statusWrap {
+    margin-bottom: 20px;
+    font-size: 17px;
+}
+
+.emptyStatus {
+    color: #939393;
 }
 
 .mainPhoto {
-    max-width: 250px;
+    max-width: 300px;
+}
+
+.inputNewPhotoWrap {
+    max-width: 300px;
 }
 
 .contact {
-    padding-left: 10px;
+
 }
+
+
+.infoTextWrap {
+    display: flex;
+    padding-bottom: 5px;
+    font-size: 18px;
+}
+
+.infoTextKey {
+    color: #939393;
+    font-weight: lighter;
+    display: block;
+    min-width: 180px;
+}
+
+.infoTextDescr {
+    padding-left: 75px;
+}
+
+
+
+

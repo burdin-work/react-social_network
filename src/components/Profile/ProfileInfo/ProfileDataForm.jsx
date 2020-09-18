@@ -7,7 +7,9 @@ import commonStyles from '../../common/FormsControls/FormsControls.module.css';
 
 const ProfileDataForm = ({handleSubmit, profile, error}) => {
 
-    return <form onSubmit={handleSubmit}>
+    return(
+    <div className={styles.descriptionRight}>
+    <form onSubmit={handleSubmit}>
         <div><button>save</button></div>
 
         {error && <div className={commonStyles.formSummaryError}>
@@ -40,6 +42,8 @@ const ProfileDataForm = ({handleSubmit, profile, error}) => {
         })}
         </div>
     </form>
+    </div>
+    )
 }
 
 const ProfileDataFormReduxForm = reduxForm({form: 'edit-profile'})(ProfileDataForm);

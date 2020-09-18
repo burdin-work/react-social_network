@@ -46,7 +46,7 @@ class App extends Component {
         }
 
         return (
-            <main>
+            <div className="page">
                 <div className="header-wrap">
                     <HeaderContainer/>
                 </div>
@@ -75,7 +75,7 @@ class App extends Component {
                         </div>
                     </div>
                 </div>
-            </main>
+            </div>
         );
     }
 }

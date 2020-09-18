@@ -24,17 +24,22 @@ const ProfileStatus = (props) => {
         setStatus(e.currentTarget.value);
     }
 
+    const savedStatus = <span onClick={activateEditMode}>{props.status}</span>
+    const emptyStatus = <span className={styles.emptyStatus} onClick={activateEditMode}>change status</span>
+
     return (
         <div>
             {!editMode &&
-            <div>
-                <b>Status: </b>
-                <span className={styles.statusDisplay} onClick={activateEditMode}>
-                        {props.status || "-----"}</span>
+            <div className={styles.statusWrap}>
+                {props.status
+                    ? savedStatus
+                    : emptyStatus
+                }
             </div>
             }
+
             {editMode &&
-            <div>
+            <div className={styles.statusWrap}>
                 <input onChange={onStatusChange} autoFocus={true} onBlur={deactivateEditMode} value={status}/>
             </div>
             }
