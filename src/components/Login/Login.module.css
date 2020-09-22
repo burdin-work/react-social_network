@@ -1,0 +1,65 @@
+.loginWrap {
+    background-color: #fff;
+    padding: 10px;
+    width: 45%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: nowrap;
+    align-items: center;
+    border-radius: 8px;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 1px 0 0 rgba(17, 17, 17, .15), 0 0 0 1px rgba(17, 17, 17, .05);
+    min-height: 420px;
+}
+
+.loginWrap h1 {
+    margin-bottom: 25px;
+}
+
+.loginWrap form input {
+    margin-bottom: 15px;
+}
+
+.formCheckbox div {
+}
+
+.loginWrap form button {
+    padding: 0 30px;
+    width: 100%;
+}
+
+
+.authButton {
+    margin-top: 30px;
+    position: relative;
+    color: #111;
+    font-weight: bold;
+    text-decoration: none;
+    text-shadow: -1px -1px #fff;
+    user-select: none;
+    padding: .3em .9em;
+    background-color: #fff;
+    border-radius: 8px;
+    background-image: linear-gradient(45deg, rgba(255,255,255,.0) 30%, rgba(114, 113, 113, 0.8), rgba(201, 78, 78, 0) 70%), radial-gradient(190% 100% at 50% 0%, rgba(9, 9, 9, 0.35) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(0,0,0,0) 50%);
+    background-repeat: no-repeat;
+    background-size: 200% 100%, auto;
+    background-position: 200% 0, 0 0;
+    box-shadow: rgba(0,0,0,.3) 0 2px 5px;
+    outline: none !important;
+}
+
+.authButton:hover {
+    background-color: #f5efef;
+    color: #111;
+    cursor: pointer;
+    text-decoration: none;
+    transition: .5s linear;
+    background-position: -200% 0, 0 0;
+}
+.authButton:active {
+    top: 1px;
+    box-shadow: none;
+}
