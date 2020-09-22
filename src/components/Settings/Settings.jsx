@@ -1,10 +1,21 @@
 import React from 'react';
-import styles from './Settings.module.css';
+import{ProfileDataFormSettings} from "../Profile/ProfileInfo/ProfileDataForm";
 
-const Settings = () => {
+const Settings = ({profile, saveProfile, history}) => {
+
+    const onSubmit = (formData) => {
+        saveProfile(formData).then(() => {
+            history.push('/profile');
+        })
+    }
     return (
         <div>
-            Settings
+            { profile &&
+            <ProfileDataFormSettings
+                initialValues={profile}
+                profile={profile}
+                onSubmit={onSubmit}/>
+            }
         </div>
     )
 }

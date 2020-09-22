@@ -3,13 +3,22 @@
     grid-template-columns: 2fr 10fr;
 }
 
-.dialogsItems {
+.dialogsItems,
+.messages {
     padding: 10px;
+    border-radius: 4px;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 1px 0 0 rgba(17, 17, 17, .15), 0 0 0 1px rgba(17, 17, 17, .05);
+}
+
+.dialogsItems {
+    margin-right: 20px;
 }
 
 .dialogsItems a{
     text-decoration: none;
-    color: whitesmoke;
+    color: inherit;
 }
 
 .dialogsItems a.active{
@@ -17,7 +26,27 @@
 }
 
 .dialogsItems .active {
-    color: gold;
+    font-weight: bold;
+}
+
+.messages > div {
+    padding: 3px;
+    margin-bottom: 15px;
+}
+
+.form textarea {
+    outline: none !important;
+}
+
+.sendMessageWrap {
+    /*display: flex;
+    justify-content: center;*/
+    margin-top: 3px;
+}
+
+.sendMessageWrap button {
+    outline: none !important;
+    border-radius: 5px;
 }
 
 

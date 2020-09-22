@@ -5,19 +5,19 @@ import Message from "./Message/Message";
 import {Redirect} from "react-router-dom";
 import {Field, reduxForm} from "redux-form";
 import {Textarea} from "../common/FormsControls/FormsControls";
-import {maxLength50, required} from "../../utils/validators/validators";
+import {maxLength50} from "../../utils/validators/validators";
 
 const AddMessageForm = (props) => {
     return (
-        <form onSubmit={props.handleSubmit}>
+        <form onSubmit={props.handleSubmit} className={styles.form}>
 
             <Field component={Textarea}
-                   validate={[required, maxLength50]}
+                   validate={[maxLength50]}
                    name="newMessageBody"
                    placeholder="enter your message"
             />
 
-            <div>
+            <div className={styles.sendMessageWrap} >
                 <button>send message</button>
             </div>
         </form>
@@ -53,8 +53,9 @@ const Dialogs = (props) => {
             </div>
             <div className={styles.messages}>
                 <div>{messagesElements}</div>
+                <div className={styles.newMessageWrap}>
                 <AddMessageFormRedux onSubmit={addNewMessage}/>
-
+                </div>
 
             </div>
         </div>

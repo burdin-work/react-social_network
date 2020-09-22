@@ -16,7 +16,7 @@ import {
     getTotalItemsCount, getUsersSuperSelector
 } from "../../redux/users-selectors";
 
-class UsersContainer extends React.Component {
+class InvitesContainer extends React.Component {
 
     constructor(props) {
         super(props);
@@ -28,17 +28,11 @@ class UsersContainer extends React.Component {
 
     }
 
-    onPageChanged = (pageNumber) => {
-        const {pageSize} = this.props;
-        this.props.getUsers(pageNumber, pageSize);
-    }
 
     render() {
-
-
         return <>
             {this.props.isFetching ? <Preloader/> : null}
-            <Users totalItemsCount={this.props.totalItemsCount}
+            <Invites totalItemsCount={this.props.totalItemsCount}
                    pageSize={this.props.pageSize}
                    currentPage={this.props.currentPage}
                    users={this.props.users}
@@ -64,6 +58,6 @@ let mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps, {
-        follow, unfollow, setCurrentPage, toggleFollowingProgress,
-        getUsers: requestUsers
-    })(UsersContainer);
+    follow, unfollow, setCurrentPage, toggleFollowingProgress,
+    getUsers: requestUsers
+})(InvitesContainer);

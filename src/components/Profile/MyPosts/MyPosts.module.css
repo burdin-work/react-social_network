@@ -1,10 +1,20 @@
 .postsBlock {
-    margin-top: 15px;
+    margin-top: 30px;
     border-radius: 4px;
     background-color: #fff;
     padding: 20px;
 }
+.postsBlock textarea,
+.postsBlock button {
+    outline: none !important;
+    border-radius: 5px;
+}
+
+.postsBlock button {
+min-width: 112px;
+}
+
 
 .posts {
-    margin-top: 10px;
+    margin-top: 25px;
 }

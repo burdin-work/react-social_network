@@ -3,7 +3,7 @@
 }
 
 .active {
-    color: gold !important;
+    font-weight: bold;
 }
 
 

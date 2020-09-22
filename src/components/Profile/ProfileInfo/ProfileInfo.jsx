@@ -3,7 +3,9 @@ import styles from './ProfileInfo.module.css';
 import Preloader from "../../common/Preloader/Preloader";
 import ProfileStatus from "./ProfileStatus.jsx";
 import userDefaultPhoto from '../../../assets/images/defaultUser.jpg'
-import ProfileDataForm from "./ProfileDataForm";
+import iconDownload from '../../../assets/images/icon_download.png'
+import {ProfileDataFormInfo} from "./ProfileDataForm";
+import Lightbox from "./LargePhoto/Lightbox";
 
 
 export const Contact = ({contactTitle, contactValue}) => {
@@ -55,7 +57,18 @@ const ProfileData = ({profile, isOwner, goToEditMode, status, updateStatus}) => 
 
 const ProfileInfo = ({profile, isOwner, savePhoto, saveProfile, status, updateStatus}) => {
 
+    let mainPhoto = undefined;
+    if(profile) {
+        mainPhoto = profile.photos.large;
+    }
+
     let [editMode, setEditMode] = useState(false);
+    let [toogleLightbox, lightboxSet] = useState(false);
+
+
+    const changeToggleLightBox = () => {
+        lightboxSet(!toogleLightbox)
+    }
 
     if (!profile) {
         return <Preloader/>
@@ -78,16 +91,46 @@ const ProfileInfo = ({profile, isOwner, savePhoto, saveProfile, status, updateSt
             <div className={styles.descriptionBlock}>
 
                 <div className={styles.descriptionLeft}>
-                    <img src={profile.photos.large || userDefaultPhoto} className={styles.mainPhoto}/>
-                    {isOwner
-                    &&
-                    <div className={styles.inputNewPhotoWrap}><input type="file" onChange={onMainPhotoSelected}/></div>}
+
+                    <div className={styles.changeAvatarContainer}>
+                        <img src={profile.photos.large || userDefaultPhoto}
+                             className={styles.mainPhoto}
+                             onClick={changeToggleLightBox}
+                        />
+                        {isOwner
+                        &&
+                        <label htmlFor="avatar"
+                               className={styles.changeAvatar}
+                        >
+                            <div className={styles.AvatarControl}>
+                                <div className={styles.iconDownloadWrap}>
+                                    <img src={iconDownload}
+                                         alt="Download"
+                                         className={styles.iconDownload}
+                                    />
+                                    Update photo
+                                </div>
+                                <input id="avatar" type="file" onChange={onMainPhotoSelected}
+                                       style={{display: "none"}}/>
+                            </div>
+                        </label>
+                        }
+                    </div>
+
                 </div>
 
+                <Lightbox
+                    mainPhoto={mainPhoto}
+                    toogleLightbox={toogleLightbox}
+                    changeToggleLightBox={changeToggleLightBox}
+                />
+
                 {editMode
-                    ? <ProfileDataForm initialValues={profile}
-                                       profile={profile}
-                                       onSubmit={onSubmit}/>
+                    ? <ProfileDataFormInfo
+                        initialValues={profile}
+                        profile={profile}
+                        onSubmit={onSubmit}
+                        prefixForName=''/>
 
                     : <ProfileData profile={profile}
                                    status={status}

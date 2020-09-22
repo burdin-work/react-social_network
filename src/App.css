@@ -1,5 +1,6 @@
 html {
     background-color: #edeef0;
+    min-width: 720px;
 }
 
 body {
@@ -23,7 +24,7 @@ a {
 
 .header-wrap {
     border-bottom: 1px solid rgba(17, 17, 17, .15);
-    margin-bottom: 1rem;
+    margin-bottom: 20px;
     background-color: #fff;
     height: 188px;
 }
@@ -32,9 +33,13 @@ a {
     display: flex;
     justify-content: left;
     flex-wrap: nowrap;
-    padding-top: 25px;
 }
 
 .content {
     width: 100%;
+}
+
+/* Zoom of Lightbox */
+.ril__image {
+    transform: translate3d(0px, 0px, 0px) scale3d(2.00885, 2.00885, 1) !important;
 }

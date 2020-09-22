@@ -3,7 +3,6 @@ import './App.css';
 import Navbar from "./components/Navbar/Navbar";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
-import Settings from "./components/Settings/Settings";
 // HashRouter - for loading pages on the Github Pages without 404 error
 import {HashRouter, Redirect, Route, Switch, withRouter} from "react-router-dom";
 
@@ -18,6 +17,8 @@ import Preloader from "./components/common/Preloader/Preloader";
 import store from "./redux/redux-store";
 import {withSuspense} from "./hoc/withSuspense";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import SettingsContainer from "./components/Settings/SettingsContainer";
+import NotFound from "./components/404/notFound";
 
 //import DialogsContainer from "./components/Dialogs/DialogsContainer";
 const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'));
@@ -58,7 +59,7 @@ class App extends Component {
                             <Switch>
                                 <Route exact path='/' render={() =>
                                     <Redirect to={"/profile"}/>}/>
-                                <Route path='/settings' render={() => <Settings/>}/>
+                                <Route path='/settings' render={() => <SettingsContainer/>}/>
                                 <Route path='/music' render={() => <Music/>}/>
                                 <Route path='/news' render={() => <News/>}/>
                                 <Route path='/dialogs'
@@ -70,7 +71,7 @@ class App extends Component {
                                 <Route path='/login' render={() =>
                                     < Login/>}/>
                                 <Route path='*' render={() =>
-                                    <div>404 NOT FOUND</div>}/>
+                                    <NotFound/>}/>
                             </Switch>
                         </div>
                     </div>

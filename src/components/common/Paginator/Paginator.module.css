@@ -1,13 +1,46 @@
 .paginator {
     margin: 10px;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.pagesWrap {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-right: 5px;
+    margin-left: 5px;
 }
 
 .pageNumber {
     padding: 2px;
+    margin-right: 3px;
+    margin-left: 3px;
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
     border: 1px solid grey;
+    text-align: center;
+    vertical-align: center;
+    line-height: 2.3;
+    background-color: #fff;
 }
 
 .selectedPage {
     font-weight: bold;
+}
+
+.arrows {
+    outline: none !important;
+    border: none !important;
+}
+
+.arrows:hover {
+    text-decoration: underline;
+}
+
+.arrows:active {
+    text-shadow: 0 0 0 black, 0 0 0 #dbd5d5;
 }

@@ -1,11 +1,9 @@
 import React from 'react';
-import styles from './News.module.css';
+import NotFound from "../404/notFound";
 
 const News = () => {
     return (
-        <div>
-            News
-        </div>
+            <NotFound />
     )
 }
 

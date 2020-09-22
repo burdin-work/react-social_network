@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './MyPosts.module.css';
 import Post from "./Post/Post";
 import {Field, reduxForm} from "redux-form";
-import {maxLength10, maxLength500, required} from "../../../utils/validators/validators";
+import {maxLength50, required} from "../../../utils/validators/validators";
 import {Textarea} from "../../common/FormsControls/FormsControls";
 
 
@@ -13,7 +13,7 @@ const NewPostForm = (props) => {
             <Field name="newPostBody"
                    component={Textarea}
                    placeholder="enter your post"
-                   validate={[required, maxLength500]}
+                   validate={[required, maxLength50]}
             />
             <div>
                 <button>Add post</button>
@@ -27,8 +27,9 @@ const NewPostFormRedux = reduxForm({form: 'AddNewPostForm'})(NewPostForm)
 
 const MyPosts = React.memo(props => {
 
+    let reversedPosts = [...props.posts].reverse();
     let postsElements =
-        props.posts.map((post, index) => <Post key={post.id} message={post.message} likesCount={post.likesCount}/>);
+        reversedPosts.map((post) => <Post key={post.id} message={post.message} likesCount={post.likesCount}/>);
 
 
     let onAddNewPost = (values) => {

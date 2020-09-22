@@ -97,7 +97,7 @@ export const saveProfile = (profile) => async (dispatch, getState) => {
         let kindError = response.data.messages[0];
         let messageError = '';
         if(kindError) {
-            kindError = response.data.messages[0].split('->')[1].split(')')[0];
+            kindError = response.data.messages[0]; //.split('->')[1].split(')')[0];
             messageError = ' has invalid url format. Change it please.'
         }
         let errors = {};

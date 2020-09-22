@@ -1,11 +1,9 @@
 import React from 'react';
-import styles from './Music.module.css';
+import NotFound from "../404/notFound";
 
 const Music = () => {
     return (
-        <div>
-            Music
-        </div>
+            <NotFound />
     )
 }
 
